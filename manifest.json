@@ -1,0 +1,26 @@
+{
+  "background": {
+    "persistent": false,
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_icon": "ilogo114.png"
+  },
+  "description": "Ekşi Sözlük mesaj bildirim uzantısı.",
+  "icons": {
+	"57": "ilogo57.png",
+	"114": "ilogo114.png",
+	"120": "ilogo120.png",
+	"200": "ilogo200.png"
+	},
+  "name": "Ekşi Sözlük Mesajlar",
+  "short_name": "Ekşi Sözlük",
+  "permissions": [
+    "alarms",
+    "tabs",
+    "webNavigation",
+    "*://*.eksisozluk.com/*"
+   ],
+  "version": "0.1.0",
+  "manifest_version": 2
+}
