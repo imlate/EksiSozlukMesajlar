@@ -8,10 +8,7 @@
   },
   "description": "Ekşi Sözlük mesaj bildirim uzantısı.",
   "icons": {
-	"57": "ilogo57.png",
-	"114": "ilogo114.png",
-	"120": "ilogo120.png",
-	"200": "ilogo200.png"
+	"114": "ilogo114.png"
 	},
   "name": "Ekşi Sözlük Mesajlar",
   "short_name": "Ekşi Sözlük",
