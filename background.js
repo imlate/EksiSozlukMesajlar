@@ -1,4 +1,9 @@
 var delay = 1;
+var ESM = {
+	messageboxUrl : "https://eksisozluk.com/mesaj",
+	loginUrl : "https://eksisozluk.com/giris",
+	checkUrl : "https://eksisozluk.com/ayarlar"
+}
 
 chrome.browserAction.onClicked.addListener(goToPage);
 chrome.runtime.onInstalled.addListener(startRequest);
@@ -8,23 +13,11 @@ function goToPage() {
   checkMessages();
   if(localStorage.thereIsMessage == "notLoggedIn") {
 	console.log('Going to login page...');
-	chrome.tabs.create({url: getEksiSozlukLoginUrl()});
+	chrome.tabs.create({url: ESM.loginUrl});
   } else {
     console.log('Going to inbox...');
-	chrome.tabs.create({url: getEksiSozlukMesajlarUrl()});
+	chrome.tabs.create({url: ESM.messageboxUrl});
   }
-}
-
-function getEksiSozlukMesajlarUrl() {
-  return "https://eksisozluk.com/mesaj/";
-}
-
-function getEksiSozlukLoginUrl() {
-  return "https://eksisozluk.com/giris";
-}
-
-function getEksiSozlukCheckUrl() {
-  return "https://eksisozluk.com/istatistik";
 }
 
 function startRequest() {
@@ -36,7 +29,7 @@ function startRequest() {
 function checkMessages() {
   console.log('Checking messages');
   var eksiSozlukSite = new XMLHttpRequest();
-  eksiSozlukSite.open("GET", getEksiSozlukCheckUrl(), false);
+  eksiSozlukSite.open("GET", ESM.checkUrl, false);
   eksiSozlukSite.onreadystatechange = function() {
 	if(eksiSozlukSite.readyState == 4) {
 	 var xmlDoc = eksiSozlukSite.responseText;
@@ -67,7 +60,7 @@ function updateIcon () {
 	chrome.browserAction.setIcon({path:"thereIsMessage.png"});
 	chrome.browserAction.setBadgeText({text:""});
   } else if (localStorage.thereIsMessage == "false") {
-    console.log('Setting icon to there is no message');
+    	console.log('Setting icon to there is no message');
 	chrome.browserAction.setIcon({path:"ilogo114.png"});
 	chrome.browserAction.setBadgeText({text:""});
   }
