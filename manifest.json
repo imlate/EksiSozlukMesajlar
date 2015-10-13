@@ -18,6 +18,6 @@
     "webNavigation",
     "*://*.eksisozluk.com/*"
    ],
-  "version": "0.1.0",
-  "manifest_version": 2
+  "version": "0.1.2",
+  "manifest_version": 3
 }
